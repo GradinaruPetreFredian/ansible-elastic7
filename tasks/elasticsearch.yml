@@ -3,7 +3,7 @@
 - name: Elasticsearch installation
   block:
     - name: Install the elasticsearch packages
-      yum: name={{ elasticsearch_packages }} state={{ elasticsearch_package_state }} update_cache=yes cache_valid_time=1800
+      yum: name={{ elasticsearch_packages }} state={{ elasticsearch_package_state }} update_cache=yes
 
 
 - name: Elasticsearch configuration

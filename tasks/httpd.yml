@@ -1,7 +1,7 @@
 - name: Httpd installation
   block:
     - name: Install the httpd packages
-      yum: name='httpd' state={{ httpd_package_state }} update_cache=yes cache_valid_time=1800
+      yum: name='httpd' state={{ httpd_package_state }} update_cache=yes
 
 
 - name: Httpd configuration
