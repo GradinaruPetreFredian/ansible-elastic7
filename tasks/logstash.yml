@@ -28,5 +28,6 @@
       notify: Restart logstash
 
     - name: Configure Logstash pipelines filters
-      template: src=files/logstash/conf.d/* dest=/etc/logstash/conf.d/ owner=root group=logstash mode=0644
+      template: src='files/logstash/conf.d/{{ item.src }}' dest='/etc/logstash/conf.d/{{ item.path }}' owner=root group=logstash mode=0644
+        with_filetree: '{{ templates_source }}'
       notify: Restart logstash
