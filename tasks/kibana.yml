@@ -23,4 +23,3 @@
     owner: root
     group: kibana
     mode: 0755
-    notify: Restart kibana
