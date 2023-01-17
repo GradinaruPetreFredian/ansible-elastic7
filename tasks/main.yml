@@ -4,7 +4,7 @@
 - import_tasks: elastic_repo.yml
 
 - import_tasks: elasticsearch.yml
-  when: elastic_install | bool
+  when: elasticsearch_install | bool
 
 - import_tasks: logstash.yml
   when: logstash_install | bool
