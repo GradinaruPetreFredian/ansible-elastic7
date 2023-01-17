@@ -3,4 +3,4 @@
   remote_user: ansible
   become: yes
   roles:
-    - ansible-role-elastic
+    - ansible-role-elastic7

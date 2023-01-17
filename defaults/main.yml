@@ -31,6 +31,8 @@ kibana_http_port: 5601
 kibana_server_host: localhost
 kibana_server_basePath: /kibana
 kibana_servername: '{{ ansible_fqdn }}'
+kibana_user: admin
+kibana_password: admin
 
 #Redis Configuration Values
 redis_install: True

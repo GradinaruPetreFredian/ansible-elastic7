@@ -16,6 +16,6 @@
   service: name=redis state=restarted enabled=yes
   when: redis_enabled | bool
 
-  - name: Restart httpd
+- name: Restart httpd
   service: name=httpd state=restarted enabled=yes
   when: httpd_enabled | bool
