@@ -2,10 +2,3 @@
   block:
     - name: Install the httpd packages
       yum: name='httpd' state={{ httpd_package_state }} update_cache=yes
-
-
-- name: Httpd configuration
-  block:
-    - name: Install the httpd configuration
-      template: src=httpd.conf.j2 dest=/etc/redis.conf owner=root group=root mode=0755
-      notify: Restart httpd
