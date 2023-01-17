@@ -64,16 +64,15 @@ http.port: {{ elasticsearch_http_port }}
 # Pass an initial list of hosts to perform discovery when this node is started:
 # The default list of hosts is ["127.0.0.1", "[::1]"]
 #
-discovery.seed_hosts: [{% for host in groups['elastic'] %}
-"{{host}}"
-{%- if loop.last %},{% endif %}
+discovery.seed_hosts: 
+[{% for host in groups['elastic'] %}
+  , "{{host}}"
 {% endfor %}]
 #
 # Bootstrap the cluster using an initial set of master-eligible nodes:
 #
 cluster.initial_master_nodes: [{% for host in groups['elastic'] %}
-"{{host}}"
-{%- if loop.last %},{% endif %}
+  , "{{host}}"
 {% endfor %}]
 #
 # For more information, consult the discovery and cluster formation module documentation.
