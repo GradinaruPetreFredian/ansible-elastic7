@@ -1,0 +1,9 @@
+<Location {{ kibana_server_basePath }}>
+  ProxyPass http://{{ kibana_server_host }}:5601/
+  ProxyPassReverse http://{{ kibana_server_host }}:5601/
+  AuthType Basic
+  AuthName "Kibana"
+  AuthUserFile /etc/kibana/users
+  AuthBasicProvider file
+  require valid-user
+</Location>

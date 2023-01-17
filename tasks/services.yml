@@ -1,0 +1,20 @@
+---
+- name: Ensure that elasticsearch is enabled and running
+  service: name=elasticsearch state=started enabled=yes
+  when: elasticsearch_enabled | bool
+
+- name: Ensure that logstash is enabled and running
+  service: name=logstash state=started enabled=yes
+  when: logstash_enabled | bool
+
+- name: Ensure that kibana is enabled and running
+  service: name=kibana state=started enabled=yes
+  when: kibana_enabled | bool
+
+- name: Ensure that redis is enabled and running
+  service: name=redis state=started enabled=yes
+  when: redis_enabled | bool
+
+- name: Ensure that httpd is enabled and running
+  service: name=httpd state=started enabled=yes
+  when: httpd_enabled | bool

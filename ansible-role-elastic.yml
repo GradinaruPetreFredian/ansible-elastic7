@@ -1,0 +1,6 @@
+---
+- hosts: elastic
+  remote_user: ansible
+  become: yes
+  roles:
+    - ansible-role-elastic

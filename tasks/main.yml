@@ -1,0 +1,21 @@
+---
+- import_taska: dependencies.yml
+
+- import_tasks: elastic_repo.yml
+
+- import_tasks: elasticsearch.yml
+  when: elastic_install | bool
+
+- import_tasks: logstash.yml
+  when: logstash_install | bool
+
+- import_tasks: kibana.yml
+  when: kibana_install | bool
+
+- import_tasks: redis.yml
+  when: redis_install | bool
+
+- import_tasks: httpd.yml
+  when: httpd_install | bool
+
+- import_tasks: services.yml

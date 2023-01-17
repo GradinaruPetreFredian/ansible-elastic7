@@ -1,0 +1,28 @@
+---
+
+- name: Kibana installation
+  block:
+    - name: Install the Kibana packages
+      apt: name='{{ kibana_packages }}' state={{ kibana_package_state }} update_cache=yes cache_valid_time=1800
+
+- name: Kibana configuration
+  block:
+    - name: Install the Kibana configuration
+      template: src=kibana.yml.j2 dest=/etc/kibana/kibana.yml owner=root group=kibana mode=0644
+      notify: Restart kibana
+  
+    - name: Install the Kibana httpd configuration
+      template: src=kibana.conf.j2 dest=/etc/httpd/conf.d/kibana.conf owner=root group=kibana mode=0644
+      notify: Restart kibana
+
+- name: Kibana login
+  block: 
+    - name: Create the Kibana login
+      htpasswd:
+        path: /etc/kibana/users
+        name: "{{ kibana_user }}"
+        password: "{{ kibana_password }}"
+        owner: root
+        group: kibana
+        mode: 0644
+        notify: Restart httpd

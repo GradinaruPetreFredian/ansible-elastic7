@@ -1,0 +1,17 @@
+---
+
+- name: Elasticsearch installation
+  block:
+    - name: Install the elasticsearch packages
+      yum: name='{{ elasticsearch_packages }}' state={{ elasticsearch_package_state }} update_cache=yes cache_valid_time=1800
+
+
+- name: Elasticsearch configuration
+  block:
+    - name: Install the elasticsearch JVM options
+      template: src=elasticsearch-jvm.options.j2 dest=/etc/elasticsearch/jvm.options owner=root group=elasticsearch mode=0640
+      notify: Restart elasticsearch
+
+    - name: Install the elasticsearch configuration
+      template: src=elasticsearch.yml.j2 dest=/etc/elasticsearch/elasticsearch.yml owner=root group=elasticsearch mode=0640
+      notify: Restart elasticsearch

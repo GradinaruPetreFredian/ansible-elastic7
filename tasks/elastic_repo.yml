@@ -1,0 +1,9 @@
+---
+- name: Setup Elastic Repository
+  yum_repository:
+    name: elastic-{{ elastic_repo_version }}
+    description: Elastic Release {{ elastic_repo_version }}
+    file: elastic-{{ elastic_repo_version }}
+    baseurl: {{ elastic_repo }}
+    gpgcheck: yes
+    gpgkey: {{ elastic_repo_key }}

@@ -1,0 +1,10 @@
+# This file is where you define your pipelines. You can define multiple.
+# For more information on multiple pipelines, see the documentation:
+#   https://www.elastic.co/guide/en/logstash/current/multiple-pipelines.html
+#
+- pipeline.id: logstash-shipper
+  path.config: "/etc/logstash/logstash-shipper.conf"
+- pipeline.id: logstash-indexer
+  path.config: "/etc/logstash/logstash-indexer.conf"
+- pipeline.id: mongodb
+  path.config: "/etc/logstash/conf.d/mongodb/*conf"

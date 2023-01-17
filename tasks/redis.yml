@@ -1,0 +1,11 @@
+- name: Redis installation
+  block:
+    - name: Install the redis packages
+      yum: name='redis' state='present' update_cache=yes cache_valid_time=1800
+
+
+- name: Elasticsearch configuration
+  block:
+    - name: Install the redis configuration
+      template: src=redis.conf.j2 dest=/etc/redis.conf owner=redis group=root mode=0644
+      notify: Restart redis
