@@ -15,14 +15,12 @@
       template: src=kibana.conf.j2 dest=/etc/httpd/conf.d/kibana.conf owner=root group=kibana mode=0644
       notify: Restart kibana
 
-- name: Kibana login
-  block: 
-    - name: Create the Kibana login
-      htpasswd:
-        path: /etc/kibana/users
-        name: "{{ kibana_user }}"
-        password: "{{ kibana_password }}"
-        owner: root
-        group: kibana
-        mode: 0644
-        notify: Restart httpd
+- name: Create Kibana login
+  htpasswd:
+    path: /etc/kibana/users
+    name: "{{ kibana_user }}"
+    password: "{{ kibana_password }}"
+    owner: root
+    group: kibana
+    mode: 0755
+    notify: Restart kibana
