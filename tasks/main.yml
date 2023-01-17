@@ -1,6 +1,12 @@
 ---
 - import_tasks: dependencies.yml
 
+- import_tasks: httpd.yml
+  when: httpd_install | bool
+
+- import_tasks: redis.yml
+  when: redis_install | bool
+
 - import_tasks: elastic_repo.yml
 
 - import_tasks: elasticsearch.yml
@@ -11,11 +17,5 @@
 
 - import_tasks: kibana.yml
   when: kibana_install | bool
-
-- import_tasks: redis.yml
-  when: redis_install | bool
-
-- import_tasks: httpd.yml
-  when: httpd_install | bool
 
 - import_tasks: services.yml
