@@ -5,8 +5,8 @@ elastic_repo_version: '{{ elastic_major_version }}.x'
 
 elastic_version: '{{ elastic_major_version }}.{{ elastic_minor_version }}.{{ elastic_patch_version }}'
 elasticsearch_packages:
-  - 'elasticsearch={{ elastic_version }}-1'
+  - 'elasticsearch-{{ elastic_version }}'
 logstash_packages:
-  - 'logstash={{ elastic_version }}-1'
+  - 'logstash-{{ elastic_version }}'
 kibana_packages:
-  - 'kibana={{ elastic_version }}-1'
+  - 'kibana-{{ elastic_version }}'
