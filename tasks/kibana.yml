@@ -3,7 +3,7 @@
 - name: Kibana installation
   block:
     - name: Install the Kibana packages
-      apt: name={{ kibana_packages }} state={{ kibana_package_state }} update_cache=yes
+      yum: name={{ kibana_packages }} state={{ kibana_package_state }} update_cache=yes
 
 - name: Kibana configuration
   block:
