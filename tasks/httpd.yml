@@ -10,3 +10,12 @@
    name: httpd_can_network_connect
    state: yes
    persistent: yes
+
+- name: Create Kibana login
+  htpasswd:
+    path: /etc/httpd/conf.d/users
+    name: "{{ kibana_user }}"
+    password: "{{ kibana_password }}"
+    owner: root
+    group: kibana
+    mode: 0644

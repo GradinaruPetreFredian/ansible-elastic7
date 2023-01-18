@@ -3,7 +3,7 @@
   ProxyPassReverse http://{{ kibana_server_host }}:5601/
   AuthType Basic
   AuthName "Kibana"
-  AuthUserFile /etc/kibana/users
+  AuthUserFile /etc/httpd/conf.d/users
   AuthBasicProvider file
   require valid-user
 </Location>
