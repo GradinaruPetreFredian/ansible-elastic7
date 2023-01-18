@@ -9,5 +9,5 @@
 - name: Elasticsearch configuration
   block:
     - name: Install the redis configuration
-      template: src=redis.conf.j2 dest=/etc/redis.conf owner=redis group=root mode=0644
+      template: src=redis.conf.j2 dest=/etc/redis.conf owner=redis group=root mode=0640
       notify: Restart redis

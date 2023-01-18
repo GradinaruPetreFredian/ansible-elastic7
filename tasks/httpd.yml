@@ -17,5 +17,5 @@
     name: "{{ kibana_user }}"
     password: "{{ kibana_password }}"
     owner: root
-    group: kibana
+    group: root
     mode: 0644

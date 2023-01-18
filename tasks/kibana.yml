@@ -8,11 +8,11 @@
 - name: Kibana configuration
   block:
     - name: Install the Kibana configuration
-      template: src=kibana.yml.j2 dest=/etc/kibana/kibana.yml owner=root group=kibana mode=0644
+      template: src=kibana.yml.j2 dest=/etc/kibana/kibana.yml owner=root group=root mode=0644
       notify: Restart kibana
   
     - name: Install the Kibana httpd configuration
-      template: src=kibana.conf.j2 dest=/etc/httpd/conf.d/kibana.conf owner=root group=kibana mode=0644
+      template: src=kibana.conf.j2 dest=/etc/httpd/conf.d/kibana.conf owner=root group=root mode=0644
       notify: Restart kibana
 
 

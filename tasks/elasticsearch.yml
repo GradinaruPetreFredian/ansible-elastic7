@@ -9,9 +9,9 @@
 - name: Elasticsearch configuration
   block:
     - name: Install the elasticsearch JVM options
-      template: src=elasticsearch-jvm.options.j2 dest=/etc/elasticsearch/jvm.options owner=root group=elasticsearch mode=0640
+      template: src=elasticsearch-jvm.options.j2 dest=/etc/elasticsearch/jvm.options owner=root group=elasticsearch mode=0644
       notify: Restart elasticsearch
 
     - name: Install the elasticsearch configuration
-      template: src=elasticsearch.yml.j2 dest=/etc/elasticsearch/elasticsearch.yml owner=root group=elasticsearch mode=0640
+      template: src=elasticsearch.yml.j2 dest=/etc/elasticsearch/elasticsearch.yml owner=root group=elasticsearch mode=0660
       notify: Restart elasticsearch
