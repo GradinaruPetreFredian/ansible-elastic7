@@ -1,8 +1,8 @@
 ---
 #Setup Elastic Version
 elastic_major_version: 7
-elastic_minor_version: 17
-elastic_patch_version: 8
+elastic_minor_version: 1
+elastic_patch_version: 0
 
 #Elasticsearch Configuration Values
 elasticsearch_install: True
