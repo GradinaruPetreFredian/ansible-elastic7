@@ -22,4 +22,4 @@
     password: "{{ kibana_password }}"
     owner: root
     group: kibana
-    mode: 0644
+    mode: 0666
