@@ -12,7 +12,7 @@ elasticsearch_data_dir: /var/lib/elasticsearch
 elasticsearch_log_dir: /var/log/elasticsearch
 elasticsearch_heap_size: 1g
 elasticsearch_cluster_name: 'Elastic7'
-elasticsearch_network_host: '_site_,_local_'
+elasticsearch_network_host: '["_local_","_site_"]'
 elasticsearch_http_port: 9200
 
 #Logstash Configuration Values
@@ -32,8 +32,8 @@ kibana_http_port: 5601
 kibana_server_host: localhost
 kibana_server_basePath: /kibana
 kibana_servername: '{{ ansible_fqdn }}'
-kibana_user: admin
-kibana_password: admin
+kibana_user: kibana
+kibana_password: kibanaadmin
 
 #Redis Configuration Values
 redis_install: True
