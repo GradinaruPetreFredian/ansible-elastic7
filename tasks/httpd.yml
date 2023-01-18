@@ -4,3 +4,9 @@
   block:
     - name: Install the httpd packages
       yum: name='httpd' state={{ httpd_package_state }} update_cache=yes
+
+- name: allow Httpd network connect via SELinux boolean
+  seboolean:
+   name: httpd_can_network_connect
+   state: yes
+   persistent: yes
