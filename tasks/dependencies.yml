@@ -8,3 +8,4 @@
     - java-1.8.0-openjdk
     - python-passlib
     - libselinux-python
+    - libsemanage-python
