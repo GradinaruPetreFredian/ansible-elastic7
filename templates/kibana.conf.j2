@@ -1,6 +1,6 @@
 <Location {{ kibana_server_basePath }}>
-  ProxyPass http://{{ kibana_server_host }}:5601
-  ProxyPassReverse http://{{ kibana_server_host }}5601
+  ProxyPass http://localhost:5601
+  ProxyPassReverse http://localhost5601
   AuthType Basic
   AuthName "Kibana"
   AuthUserFile /etc/httpd/conf.d/users

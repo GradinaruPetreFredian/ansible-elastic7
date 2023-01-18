@@ -1,36 +1,26 @@
 ---
 #Setup Elastic Version
 elastic_major_version: 7
-elastic_minor_version: 4
-elastic_patch_version: 0
+elastic_minor_version: 17
+elastic_patch_version: 8
 
 #Elasticsearch Configuration Values
 elasticsearch_install: True
 elasticsearch_enabled: True
-elasticsearch_package_state: 'present'
-elasticsearch_data_dir: /var/lib/elasticsearch
-elasticsearch_log_dir: /var/log/elasticsearch
-elasticsearch_heap_size: 1g
-elasticsearch_cluster_name: 'Elastic7'
+elasticsearch_cluster_name: 'elastic7'
 elasticsearch_network_host: '["_local_","_site_"]'
-elasticsearch_http_port: 9200
+elasticsearch_heap_size: 1g
 
 #Logstash Configuration Values
 logstash_install: True
 logstash_enabled: True
-logstash_package_state: 'present'
-logstash_data_dir: /var/lib/logstash
-logstash_log_dir: /var/log/logstash
 logstash_heap_size: 1g
 
 #Kibana Configuration Values
 kibana_install: True
 kibana_enabled: True
-kibana_package_state: 'present'
-kibana_log_dir: /var/log/kibana
-kibana_http_port: 5601
 kibana_server_host: localhost
-kibana_server_basePath: /kibana
+kibana_server_basePath: /app/kibana
 kibana_servername: '{{ ansible_fqdn }}'
 kibana_user: kibana
 kibana_password: kibanaadmin
@@ -38,11 +28,10 @@ kibana_password: kibanaadmin
 #Redis Configuration Values
 redis_install: True
 redis_enabled: True
-redis_package_state: 'present'
 redis_maxmemory: 1gb
 redis_maxmemory_policy: noeviction
 
 #Httpd Configuration Values
 httpd_install: True
 httpd_enabled: True
-httpd_package_state: 'present'
+

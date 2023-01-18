@@ -3,7 +3,7 @@
 - name: Logstash installation
   block:
     - name: Install the logstash packages
-      yum: name={{ logstash_packages }} state={{ logstash_package_state }} update_cache=yes
+      yum: name={{ logstash_packages }} state='present' update_cache=yes
 
 - name: Logstash configuration
   block:

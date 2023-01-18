@@ -3,7 +3,7 @@
 - name: Httpd installation
   block:
     - name: Install the httpd packages
-      yum: name='httpd' state={{ httpd_package_state }} update_cache=yes
+      yum: name='httpd' state='present' update_cache=yes
 
 - name: allow Httpd network connect via SELinux boolean
   seboolean:
