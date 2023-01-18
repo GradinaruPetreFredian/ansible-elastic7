@@ -9,3 +9,5 @@
     - python-passlib
     - libselinux-python
     - libsemanage-python
+    - mod_ssl
+    - libgcc
