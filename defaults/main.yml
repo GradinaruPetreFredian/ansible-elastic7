@@ -12,7 +12,7 @@ elasticsearch_data_dir: /var/lib/elasticsearch
 elasticsearch_log_dir: /var/log/elasticsearch
 elasticsearch_heap_size: 1g
 elasticsearch_cluster_name: 'Elastic7'
-elasticsearch_network_host: '{{ ansible_fqdn }}'
+elasticsearch_network_host: '_site_,_local_'
 elasticsearch_http_port: 9200
 
 #Logstash Configuration Values
