@@ -1,4 +1,5 @@
 ---
+
 - name: Ensure that elasticsearch is enabled and running
   service: name=elasticsearch state=started enabled=yes
   when: elasticsearch_enabled | bool

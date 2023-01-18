@@ -1,4 +1,5 @@
 ---
+
 - name: Setup Elastic Repository
   yum_repository:
     name: elastic-{{ elastic_repo_version }}

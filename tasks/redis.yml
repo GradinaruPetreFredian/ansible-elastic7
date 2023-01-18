@@ -1,3 +1,5 @@
+---
+
 - name: Redis installation
   block:
     - name: Install the redis packages

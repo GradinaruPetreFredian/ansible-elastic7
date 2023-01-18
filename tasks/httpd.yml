@@ -1,3 +1,5 @@
+---
+
 - name: Httpd installation
   block:
     - name: Install the httpd packages
