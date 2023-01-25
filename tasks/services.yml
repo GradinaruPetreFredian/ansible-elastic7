@@ -4,18 +4,19 @@
   service: name=elasticsearch state=started enabled=yes
   when: inventory_hostname in groups["elasticsearch"]
 
+- name: Ensure that redis is enabled and running
+  service: name=redis state=started enabled=yes
+  when: inventory_hostname in groups["logstash"]
+
 - name: Ensure that logstash is enabled and running
   service: name=logstash state=started enabled=yes
   when: inventory_hostname in groups["logstash"]
 
-- name: Ensure that redis is enabled and running
-  service: name=redis state=started enabled=yes
-  when: inventory_hostname in groups["logstash"]
+- name: Ensure that apache is enabled and running
+  service: name=httpd state=started enabled=yes
+  when: inventory_hostname in groups["kibana"]
 
 - name: Ensure that kibana is enabled and running
   service: name=kibana state=started enabled=yes
   when: inventory_hostname in groups["kibana"]
 
-- name: Ensure that apache is enabled and running
-  service: name=httpd state=started enabled=yes
-  when: inventory_hostname in groups["kibana"]
