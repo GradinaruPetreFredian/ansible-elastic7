@@ -4,12 +4,14 @@
   block:
     - name: Install the httpd packages
       yum: name='httpd' state='present' update_cache=yes
+      notify: Restart httpd
 
 - name: allow Httpd network connect via SELinux boolean
   seboolean:
    name: httpd_can_network_connect
    state: yes
    persistent: yes
+   notify: Restart httpd
 
 - name: Create Kibana login
   htpasswd:
@@ -19,3 +21,4 @@
     owner: root
     group: root
     mode: 0644
+    notify: Restart httpd

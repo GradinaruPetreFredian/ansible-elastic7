@@ -4,6 +4,7 @@
   block:
     - name: Install the redis packages
       yum: name='redis' state='present' update_cache=yes
+      notify: Restart redis
 
 
 - name: Elasticsearch configuration
