@@ -2,15 +2,25 @@
 
 - name: Kibana installation
   block:
-    - name: Install the Kibana packages
+    - name: Install the kibana packages
       yum: name={{ kibana_packages }} state='present' update_cache=yes
 
 - name: Kibana configuration
   block:
-    - name: Install the Kibana configuration
+    - name: Install the kibana configuration
       template: src=kibana.yml.j2 dest=/etc/kibana/kibana.yml owner=root group=root mode=0644
       notify: Restart kibana
   
-    - name: Install the Kibana httpd configuration
+    - name: Install the kibana apache configuration
       template: src=kibana.conf.j2 dest=/etc/httpd/conf.d/kibana.conf owner=root group=root mode=0644
       notify: Restart kibana
+    
+    - name: Create the kibana login
+      htpasswd:
+        path: /etc/httpd/conf.d/users
+        name: "{{ kibana_user }}"
+        password: "{{ kibana_password }}"
+        owner: root
+        group: root
+        mode: 0644
+        notify: Restart apache

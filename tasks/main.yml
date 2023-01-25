@@ -1,22 +1,24 @@
 ---
 
-- import_tasks: dependencies.yml
+- import_tasks: prerequisites.yml
+  when: inventory_hostname in groups["elasticsearch"]
 
-- import_tasks: httpd.yml
-  when: httpd_install | bool
-
-- import_tasks: redis.yml
-  when: redis_install | bool
-
-- import_tasks: elastic_repo.yml
+- import_tasks: repository.yml
+  when: inventory_hostname in groups["elasticsearch"]
 
 - import_tasks: elasticsearch.yml
-  when: elasticsearch_install | bool
+  when: inventory_hostname in groups["elasticsearch"]
+
+- import_tasks: redis.yml
+  when: inventory_hostname in groups["logstash"]
 
 - import_tasks: logstash.yml
-  when: logstash_install | bool
+  when: inventory_hostname in groups["logstash"]
 
+- import_tasks: apache.yml
+  when: inventory_hostname in groups["kibana"]
+  
 - import_tasks: kibana.yml
-  when: kibana_install | bool
+  when: inventory_hostname in groups["kibana"]
 
 - import_tasks: services.yml

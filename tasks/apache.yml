@@ -1,0 +1,14 @@
+---
+
+- name: Apache installation
+  block:
+    - name: Install the apache packages
+      yum: name='httpd' state='present' update_cache=yes
+      notify: Restart apache
+
+- name: allow httpd network connect via SELinux boolean
+  seboolean:
+   name: httpd_can_network_connect
+   state: yes
+   persistent: yes
+   notify: Restart apache

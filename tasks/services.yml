@@ -16,6 +16,6 @@
   service: name=redis state=started enabled=yes
   when: redis_enabled | bool
 
-- name: Ensure that httpd is enabled and running
+- name: Ensure that apache is enabled and running
   service: name=httpd state=started enabled=yes
-  when: httpd_enabled | bool
+  when: apache_enabled | bool

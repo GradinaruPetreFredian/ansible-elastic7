@@ -2,7 +2,6 @@
 - name: Restart elasticsearch
   service: name=elasticsearch state=restarted enabled=yes
   when: elasticsearch_enabled | bool
-  ignore_errors: True
 
 - name: Restart logstash
   service: name=logstash state=restarted enabled=yes
@@ -16,6 +15,6 @@
   service: name=redis state=restarted enabled=yes
   when: redis_enabled | bool
 
-- name: Restart httpd
+- name: Restart apache
   service: name=httpd state=restarted enabled=yes
-  when: httpd_enabled | bool
+  when: apache_enabled | bool

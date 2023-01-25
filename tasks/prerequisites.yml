@@ -1,6 +1,6 @@
 ---
 
-- name: Install Elastic dependencies
+- name: Prerequisites installation
   package:
     name: "{{ item }}"
     state: present
@@ -11,8 +11,3 @@
     - libsemanage-python
     - mod_ssl
     - libgcc
-
-- name: Put SELinux in permissive mode, logging actions that would be blocked.
-  ansible.posix.selinux:
-    policy: targeted
-    state: permissive
