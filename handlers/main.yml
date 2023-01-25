@@ -1,20 +1,20 @@
 ---
 - name: Restart elasticsearch
   service: name=elasticsearch state=restarted enabled=yes
-  when: elasticsearch_enabled | bool
+  when: inventory_hostname in groups["elasticsearch"]
 
 - name: Restart logstash
   service: name=logstash state=restarted enabled=yes
-  when: logstash_enabled | bool
-
-- name: Restart kibana
-  service: name=kibana state=restarted enabled=yes
-  when: kibana_enabled | bool
+  when: inventory_hostname in groups["logstash"]
 
 - name: Restart redis
   service: name=redis state=restarted enabled=yes
-  when: redis_enabled | bool
+  when: inventory_hostname in groups["logstash"]
+
+- name: Restart kibana
+  service: name=kibana state=restarted enabled=yes
+  when: inventory_hostname in groups["kibana"]
 
 - name: Restart apache
   service: name=httpd state=restarted enabled=yes
-  when: apache_enabled | bool
+  when: inventory_hostname in groups["kibana"]

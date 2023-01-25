@@ -28,4 +28,3 @@ redis_maxmemory_policy: noeviction
 
 #Apache Configuration Values
 apache_enabled: True
-

@@ -94,7 +94,7 @@ elasticsearch.hosts: [{% for host in groups['elasticsearch'] %}"http://{{ host }
 #pid.file: /run/kibana/kibana.pid
 
 # Enables you to specify a file where Kibana stores log output.
-logging.dest: "{{ kibana_log_dir }}"
+logging.dest: "/var/log/kibana"
 
 # Set the value of this setting to true to suppress all logging output.
 #logging.silent: false
