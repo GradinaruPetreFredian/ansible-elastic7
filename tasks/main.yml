@@ -1,32 +1,22 @@
 ---
 
-- hosts: all
-  tasks:
-    - name: Install dependencies
-        file: dependencies.yml
-    - name: Install Elastic7 Repository
-        file: elastic_repo.yml
+- import_tasks: dependencies.yml
 
-- hosts: elasticsearch
-  tasks:
-    - name: Install elasticsearch
-      file: elasticsearch.yml
+- import_tasks: httpd.yml
+  when: httpd_install | bool
 
-- hosts: logstash
-  tasks:
-    - name: Install logstash
-      file: logstash.yml
-    - name: Install redis
-      file: redis.yml
+- import_tasks: redis.yml
+  when: redis_install | bool
 
-- hosts: kibana
-  tasks: 
-    - name: Install kibana
-      file: kibana.yml
-    - name: Install httpd
-      file: httpd.yml
+- import_tasks: elastic_repo.yml
 
-- hosts: all
-  tasks:
-    - name: Start services
-      file: services.yml
+- import_tasks: elasticsearch.yml
+  when: elasticsearch_install | bool
+
+- import_tasks: logstash.yml
+  when: logstash_install | bool
+
+- import_tasks: kibana.yml
+  when: kibana_install | bool
+
+- import_tasks: services.yml
