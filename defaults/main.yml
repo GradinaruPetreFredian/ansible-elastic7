@@ -19,7 +19,6 @@ logstash_heap_size: 1g
 #Kibana Configuration Values
 kibana_install: True
 kibana_enabled: True
-kibana_server_host: localhost
 kibana_server_basePath: /app/kibana
 kibana_servername: '{{ ansible_fqdn }}'
 kibana_user: kibana
