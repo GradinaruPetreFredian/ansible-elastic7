@@ -20,3 +20,6 @@
   service: name=kibana state=started enabled=yes
   when: inventory_hostname in groups["kibana"]
 
+- name: Ensure that filebeat is enabled and running
+  service: name=filebeat state=started enabled=yes
+  when: inventory_hostname in groups["filebeat"]

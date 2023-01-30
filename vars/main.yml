@@ -10,3 +10,5 @@ logstash_packages:
   - 'logstash-{{ elastic_version }}'
 kibana_packages:
   - 'kibana-{{ elastic_version }}'
+filebeat_packages:
+  - 'filebeat-{{ elastic_version }}'

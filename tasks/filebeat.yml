@@ -1,0 +1,12 @@
+---
+
+- name: Filebeat installation
+  block:
+    - name: Install the filebeat packages
+      yum: name={{ filebeat_packages }} state='present' update_cache=yes
+
+- name: Filebeat configuration
+  block:
+    - name: Install the filebeat configuration
+      template: src=filebeat-apache.yml.j2 dest=/etc/filebeat/filebeat.yml owner=root group=root mode=0644
+      notify: Restart filebeat
