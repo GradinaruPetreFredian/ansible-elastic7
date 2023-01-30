@@ -13,3 +13,14 @@
     - name: Install the filebeat module apache configuration
       template: src=filebeat-apache-module.yml.j2 dest=/etc/filebeat/modules.d/apache.yml owner=root group=root mode=0644
       notify: Restart filebeat
+
+- name: Apache installation
+  block:
+    - name: Install the apache packages on the ec2
+      yum: name=httpd state='present' update_cache=yes
+
+- name: Apache configuration
+  block:
+    - name: Install a sample apache website on the ec2
+      template: src=index.html.j2 dest=/var/www/html/index.html owner=root group=root mode=0644
+      notify: Restart apache
