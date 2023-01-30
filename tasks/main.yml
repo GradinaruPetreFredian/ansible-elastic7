@@ -1,10 +1,9 @@
 ---
 
+- import_tasks: repository.yml
+
 - import_tasks: prerequisites.yml
   when: inventory_hostname in groups["elasticsearch"]
-
-- import_tasks: repository.yml
-  when: inventory_hostname in groups["elasticsearch","filebeat"]
 
 - import_tasks: elasticsearch.yml
   when: inventory_hostname in groups["elasticsearch"]
