@@ -23,3 +23,7 @@
 - name: Ensure that filebeat is enabled and running
   service: name=filebeat state=started enabled=yes
   when: inventory_hostname in groups["filebeat"]
+
+- name: Ensure that apache is enabled and running on ec2
+  service: name=httpd state=started enabled=yes
+  when: inventory_hostname in groups["filebeat"]
