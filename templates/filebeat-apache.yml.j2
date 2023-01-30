@@ -19,17 +19,18 @@ filebeat.inputs:
 # Below are the input specific configurations.
 
 # filestream is an input for collecting log messages from files.
-- type: log
+- type: filestream
 
   # Unique ID among all inputs, an ID is required.
-  id: my-apache-id
+  id: my-filestream-id
 
   # Change to true to enable this input configuration.
-  enabled: true
+  enabled: false
 
   # Paths that should be crawled and fetched. Glob based paths.
   paths:
-    - /var/log/httpd/access_log
+    - /var/log/*.log
+    #- c:\programdata\elasticsearch\logs\*
 
   # Exclude lines. A list of regular expressions to match. It drops the lines that are
   # matching any regular expression from the list.
@@ -83,7 +84,6 @@ tags: ["filebeat"]
 # output.
 fields:
   type: apache
-  name: {{ ansible_fqdn }}
 
 # ================================= Dashboards =================================
 # These settings control loading the sample dashboards to the Kibana index. Loading
