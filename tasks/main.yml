@@ -20,7 +20,7 @@
 - import_tasks: kibana.yml
   when: inventory_hostname in groups["kibana"]
 
-- import_tasks: filebeat.yml
+- import_tasks: filebeat-apache.yml
   when: inventory_hostname in groups["filebeat"]
 
 - import_tasks: services.yml
